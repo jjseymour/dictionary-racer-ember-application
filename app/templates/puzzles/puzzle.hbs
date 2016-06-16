@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>{{model.start_word}} ... {{model.end_word}}</h2>
+
+  {{#if userGiveUp}}
+    {{#each model.best_path as |word|}}
+      {{word}}
+    {{/each}}
+  {{/if}}
+
+
+    <div class="col-md-6">
+    {{#each model.entries as |entry|}}
+      <p><strong>{{entry.word}}</strong></p>
+      <p>
+        <li>{{entry.definition}}</li>
+      </p>
+    {{/each}}
+  </div>
+
+
+  <p>{{model.difficulty}}</p>
+
+</div>
+
+{{outlet}}
