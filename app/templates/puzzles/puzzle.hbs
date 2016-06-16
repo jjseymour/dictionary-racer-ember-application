@@ -7,9 +7,8 @@
 
     <p>
       {{#each entry.definition as |word|}}
-        {{word}}
+        <strong {{action "getEntry" word}}>{{word}}</strong>  
       {{/each}}
-        {{!-- {{entry.definition}} --}}
     </p>
   {{/each}}
   <h2>Ending Word: {{model.end_word}}</h2>

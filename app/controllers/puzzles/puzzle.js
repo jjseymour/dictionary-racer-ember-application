@@ -13,7 +13,6 @@ export default Ember.Controller.extend({
         var definition = entry.get('definition')
         entry.set('definition', definition.split(" "))
         entries.pushObject(entry)
-        debugger
       })
     }
   }
