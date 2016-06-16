@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    {{#link-to 'index' class="navbar-brand"}}Home{{/link-to}}
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="active" id="puzzles">{{link-to 'Puzzles' 'puzzles'}}</li>
+        <li class="active" id="entries">{{link-to 'Entries' 'entries'}}</li>
+        <li class="active" id="users">{{link-to 'Users' 'users'}}</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="well col-sm-6 col-sm-offset-4">
+{{outlet}}
+</div>
