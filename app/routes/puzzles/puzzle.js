@@ -2,14 +2,23 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params){
-    return this.store.findRecord('puzzle', params.puzzle_id);
+    var puzzle = this.store.peekRecord('puzzle', params.puzzle_id);
+    return puzzle;
   },
-  actions: {
-    getEntries(){
-    return this.store.findAll('entry')
-    },
-    sendEntry(){
-      debugger
-    }
-  }
+  // bacon: ["something"],
+  // actions: {
+  //   getEntry(word){
+  //     this.toggleProperty('cheese')
+  //     self = this
+  //     // this.currentModel.get('start_word')
+  //     this.store.queryRecord('entry', {filter: {word: word}}).then((entry) => {
+  //
+  //       self.renderTemplate('entries.userattempt', {outlet: "entries", model: entry})
+  //       // this.bacon.push(entry)
+  //     });
+  //   },
+  //   sendEntry(){
+  //     debugger
+  //   }
+  // }
 });

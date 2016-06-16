@@ -1,5 +1,18 @@
 <div class="container">
-  <h2>{{model.start_word}} ... {{model.end_word}}</h2>
+  <h2>Starting Word: {{model.start_word}}</h2>
+  {{#each entries as |entry|}}
+    <p>
+      {{entry.word}}
+    </p>
+
+    <p>
+        {{entry.definition}}
+      {{!-- {{#each entry.definitionString as |word|}}
+        {{word (action 'getEntry')}}
+      {{/each}} --}}
+    </p>
+  {{/each}}
+  <h2>Ending Word: {{model.end_word}}</h2>
   <p>{{model.difficulty}}</p>
 
   {{#if userGiveUp}}
@@ -8,14 +21,30 @@
     {{/each}}
   {{/if}}
 
+  {{putBacon}}
+  {{!-- {{#if cheese}} --}}
+    {{!-- {{#each bacon as |entry|}}
+      {{entry}}
+      {{entry.word}}
+      {{entry.definition}}
+    {{/each}} --}}
+  {{!-- {{/if}} --}}
+
+  <button type="button" name="button" class="btn btn-primary" {{action "getEntry" model.start_word}}>Start</button>
+
+{{!-- {{#each outlet as |entry|}}
+
+
+{{/each}} --}}
+  {{outlet "entries"}}
+  {{outlet}}
+  {{yield}}
 
     <div class="col-md-6">
-    {{show-entry getEntries=(action 'getEntries') entries=model.entries}}
+    {{!-- {{show-entry getEntries=(action 'getEntries') entries=model.entries}} --}}
   </div>
 
 
-  
+
 {{cheese}}
 </div>
-
-{{outlet}}

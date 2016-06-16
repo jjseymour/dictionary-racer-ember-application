@@ -7,6 +7,6 @@ export default Model.extend({
   end_word: attr(),
   difficulty: attr(),
   best_path: attr(),
-  users: hasMany('user'),
-  entries: hasMany('entry')
+  users: hasMany('user', {async: true}),
+  entries: hasMany('entry', {async: true})
 });

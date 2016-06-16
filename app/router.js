@@ -8,17 +8,18 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('puzzles', function() {
     this.route('puzzle', {
-      path: ':puzzle_id'
+      path: '/:puzzle_id'
     });
   });
   this.route('entries', function() {
     this.route('entry', {
-      path: ':entry_id'
+      path: '/:entry_id'
     });
+    this.route('userattempt');
   });
   this.route('users', function() {
     this.route('user', {
-      path: ':user_id'
+      path: '/:user_id'
     });
   });
 });

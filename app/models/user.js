@@ -7,5 +7,5 @@ export default Model.extend({
   email: attr(),
   password_digest: attr(),
   avatar: attr(),
-  puzzles: hasMany('puzzle')
+  puzzles: hasMany('puzzle', {async: true})
 });
