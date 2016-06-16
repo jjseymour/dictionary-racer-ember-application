@@ -11,7 +11,11 @@ Router.map(function() {
       path: ':puzzle_id'
     });
   });
-  this.route('entries');
+  this.route('entries', function() {
+    this.route('entry', {
+      path: ':entry_id'
+    });
+  });
   this.route('users', function() {
     this.route('user', {
       path: ':user_id'
