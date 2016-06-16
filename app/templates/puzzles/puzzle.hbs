@@ -6,10 +6,10 @@
     </p>
 
     <p>
-        {{entry.definition}}
-      {{!-- {{#each entry.definitionString as |word|}}
-        {{word (action 'getEntry')}}
-      {{/each}} --}}
+      {{#each entry.definition as |word|}}
+        {{word}}
+      {{/each}}
+        {{!-- {{entry.definition}} --}}
     </p>
   {{/each}}
   <h2>Ending Word: {{model.end_word}}</h2>
@@ -21,30 +21,7 @@
     {{/each}}
   {{/if}}
 
-  {{putBacon}}
-  {{!-- {{#if cheese}} --}}
-    {{!-- {{#each bacon as |entry|}}
-      {{entry}}
-      {{entry.word}}
-      {{entry.definition}}
-    {{/each}} --}}
-  {{!-- {{/if}} --}}
-
   <button type="button" name="button" class="btn btn-primary" {{action "getEntry" model.start_word}}>Start</button>
 
-{{!-- {{#each outlet as |entry|}}
-
-
-{{/each}} --}}
-  {{outlet "entries"}}
-  {{outlet}}
-  {{yield}}
-
-    <div class="col-md-6">
-    {{!-- {{show-entry getEntries=(action 'getEntries') entries=model.entries}} --}}
-  </div>
-
-
-
-{{cheese}}
 </div>
+{{outlet}}
