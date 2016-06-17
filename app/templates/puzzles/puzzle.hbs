@@ -1,4 +1,6 @@
 <div class="container">
+    <strong style="position:absolute; right:50px;">Clicks: {{count}}</strong>
+    <strong style="position:relative; top:20px; right:-51%;">Clicks to beat: {{model.best_path.length}}</strong>
   <h2>Starting Word: {{model.start_word}}</h2>
   {{#each entries as |entry|}}
     <p>
@@ -7,10 +9,15 @@
 
     <p>
       {{#each entry.definition as |word|}}
-        <strong {{action "getEntry" word}}>{{word}}</strong>  
+        <strong {{action "getEntry" word}}>{{word}}</strong>
       {{/each}}
     </p>
   {{/each}}
+
+  {{#ember-wormhole to="winning"}}
+    {{winner-modal isVisible=showMyModal count=count goHome="goHome"}}
+  {{/ember-wormhole}}
+
   <h2>Ending Word: {{model.end_word}}</h2>
   <p>{{model.difficulty}}</p>
 
