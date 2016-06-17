@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('puzzle', {
       path: '/:puzzle_id'
     });
+    this.route('winner');
   });
   this.route('entries', function() {
     this.route('entry', {

@@ -11,6 +11,11 @@
       {{/each}}
     </p>
   {{/each}}
+
+  {{#ember-wormhole to="winning"}}
+  {{winner-modal isVisible=showMyModal}}
+  {{/ember-wormhole}}
+
   <h2>Ending Word: {{model.end_word}}</h2>
   <p>{{model.difficulty}}</p>
 
