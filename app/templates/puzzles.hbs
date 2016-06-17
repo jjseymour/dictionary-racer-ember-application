@@ -1,7 +1,7 @@
 <h1>Puzzles</h1>
 <div class="container">
   {{#each model as |puzzle|}}
-    {{#link-to 'puzzles.puzzle' puzzle}}
+    {{#link-to 'puzzles.puzzle' puzzle.id}}
       {{puzzle.start_word}}
     {{/link-to}}
   {{/each}}

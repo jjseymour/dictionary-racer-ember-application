@@ -5,5 +5,5 @@ import { hasMany } from 'ember-data/relationships';
 export default Model.extend({
   word: attr(),
   definition: attr(),
-  puzzles: hasMany('puzzle')
+  puzzles: hasMany('puzzle', {async: true})
 });

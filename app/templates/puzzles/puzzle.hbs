@@ -1,5 +1,18 @@
 <div class="container">
-  <h2>{{model.start_word}} ... {{model.end_word}}</h2>
+  <h2>Starting Word: {{model.start_word}}</h2>
+  {{#each entries as |entry|}}
+    <p>
+      {{entry.word}}
+    </p>
+
+    <p>
+      {{#each entry.definition as |word|}}
+        <strong {{action "getEntry" word}}>{{word}}</strong>  
+      {{/each}}
+    </p>
+  {{/each}}
+  <h2>Ending Word: {{model.end_word}}</h2>
+  <p>{{model.difficulty}}</p>
 
   {{#if userGiveUp}}
     {{#each model.best_path as |word|}}
@@ -7,19 +20,7 @@
     {{/each}}
   {{/if}}
 
-
-    <div class="col-md-6">
-    {{#each model.entries as |entry|}}
-      <p><strong>{{entry.word}}</strong></p>
-      <p>
-        <li>{{entry.definition}}</li>
-      </p>
-    {{/each}}
-  </div>
-
-
-  <p>{{model.difficulty}}</p>
+  <button type="button" name="button" class="btn btn-primary" {{action "getEntry" model.start_word}}>Start</button>
 
 </div>
-
 {{outlet}}
