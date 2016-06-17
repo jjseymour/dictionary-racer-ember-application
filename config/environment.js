@@ -19,7 +19,13 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['ember-simple-auth'] = {
+   authorizer: 'authorizer:custom',
+   routeAfterAuthentication: '/'
+  };
+
   if (environment === 'development') {
+    ENV.host = 'http://localhost:3000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -40,7 +46,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.host = 'HEROKUGOESHERE'
   }
 
   return ENV;
