@@ -6,13 +6,10 @@ export default Ember.Component.extend({
      d.resolve();
    },
    doAfterClose() {
+     this.sendAction('goHome')
    },
    doClose(d) {
-     if(confirm('Please confirm...')) {
-       d.resolve();
-     } else {
-       d.reject();
-     }
+     d.resolve();
    }
  }
 });

@@ -1,4 +1,5 @@
 <div class="container">
+  <p class="pull-right">{{count}}</p>
   <h2>Starting Word: {{model.start_word}}</h2>
   {{#each entries as |entry|}}
     <p>
@@ -7,13 +8,13 @@
 
     <p>
       {{#each entry.definition as |word|}}
-        <strong {{action "getEntry" word}}>{{word}}</strong>  
+        <strong {{action "getEntry" word}}>{{word}}</strong>
       {{/each}}
     </p>
   {{/each}}
 
   {{#ember-wormhole to="winning"}}
-  {{winner-modal isVisible=showMyModal}}
+    {{winner-modal isVisible=showMyModal count=count goHome="goHome"}}
   {{/ember-wormhole}}
 
   <h2>Ending Word: {{model.end_word}}</h2>
