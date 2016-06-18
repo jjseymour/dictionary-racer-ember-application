@@ -5,7 +5,6 @@ export default Ember.Controller.extend({
   actions: {
    authenticate: function(credentials) {
      var authenticator = 'authenticator:jwt';
-     debugger
      this.get('session').authenticate(authenticator, credentials).catch((reason)=>{
       debugger
       console.log("Somethin' bad happened round these parts")

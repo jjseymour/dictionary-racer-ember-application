@@ -26,11 +26,10 @@ export default Base.extend({
        password
      }
    });
-
    const requestOptions = {
      url: this.tokenEndpoint,
      type: 'POST',
-     data,
+     data: data,
      contentType: 'application/json',
      dataType: 'json'
    };

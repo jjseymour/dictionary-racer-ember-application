@@ -18,7 +18,6 @@ export default Ember.Service.extend({
          resolve();
        }, reject);
      } else {
-        debugger
        resolve();
      }
    });

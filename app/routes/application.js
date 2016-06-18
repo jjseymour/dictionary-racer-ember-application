@@ -12,7 +12,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
  sessionAuthenticated() {
    this._loadCurrentUser().then(()=>{
-     debugger
      this.transitionTo('/puzzles');
    }).catch(() => this.get('session').invalidate());
  },
@@ -23,7 +22,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
  actions: {
    invalidateSession: function() {
-    debugger
        this.get('session').invalidate();
    }
  }
