@@ -9,24 +9,21 @@
         <li class="active" id="puzzles">{{link-to 'Puzzles' 'puzzles'}}</li>
         <li class="active" id="entries">{{link-to 'Entries' 'entries'}}</li>
         <li class="active" id="users">{{link-to 'Users' 'users'}}</li>
+        {{#if session.isAuthenticated}}
+          <li class="active" style="postition:absolute; right:-165%;" id="userEmail"><a href="#">Hi, {{sessionAccount.account.email}}</a></li>
+          <li class="active" style="postition:absolute; right:-165%;" id="logOut"><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
+        {{else}}
+          <li class="active" style="postition:absolute; right:-165%;" id="logIn">{{#link-to 'login'}}Log In{{/link-to}}</li>
+          <li class="active" style="postition:absolute; right:-165%;" id="SignUp">{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
+        {{/if}}
       </ul>
     </div>
   </div>
 </nav>
 
 
-<div class="container">
+{{!-- <div class="container">
 
- <h1>Ember JWT Token Auth Example App</h1>
-
- {{#if session.isAuthenticated}}
-   <li><a href="#">Hi, {{sessionAccount.account.email}}</a></li>
-   <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
- {{else}}
-   <li>{{#link-to 'login'}}Log In{{/link-to}}</li>
-   <li>{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
- {{/if}}
- <br>
  <div class="panel panel-default">
    <div class="panel-heading"><strong>Session Info</strong></div>
    <div class="panel-body" style="background-color: #FEFFFF ;">
@@ -42,7 +39,7 @@
      </ul>
    </div>
  </div>
-</div>
+</div> --}}
 
 <div class="well col-sm-6 col-sm-offset-4">
 {{outlet}}
