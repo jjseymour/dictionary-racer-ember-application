@@ -1,0 +1,7 @@
+<form class='form-horizontal'>
+  <label for='start=word'>First Word:</label>
+  {{input value=model.start_word id='start_word'}}
+  <label for='end_word'>Last Word:</label>
+  {{input value=model.end_word id='end_word'}}
+  <button {{action 'save' model}} id='submit' class='btn btn-primary'>Let's Get Puzzlin'!</button>
+</form>
