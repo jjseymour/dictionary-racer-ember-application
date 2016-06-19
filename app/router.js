@@ -6,6 +6,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+  this.route('signup');
   this.route('puzzles', function() {
     this.route('puzzle', {
       path: '/:puzzle_id'
@@ -16,7 +18,6 @@ Router.map(function() {
     this.route('entry', {
       path: '/:entry_id'
     });
-    this.route('userattempt');
   });
   this.route('users', function() {
     this.route('user', {
