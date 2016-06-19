@@ -13,6 +13,7 @@ Router.map(function() {
       path: '/:puzzle_id'
     });
     this.route('winner');
+    this.route('new');
   });
   this.route('entries', function() {
     this.route('entry', {

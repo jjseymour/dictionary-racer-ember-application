@@ -11,9 +11,7 @@ export default Ember.Service.extend({
      const token = this.get('session.data.authenticated.token');
      self = this
      if (!Ember.isEmpty(token)) {
-       debugger
        return self.get('store').findRecord('user', 'current-user').then((user) => {
-        debugger
          self.set('account', user);
          resolve();
        }, reject);
