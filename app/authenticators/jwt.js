@@ -33,7 +33,6 @@ export default Base.extend({
      contentType: 'application/json',
      dataType: 'json'
    };
-
    return new Promise((resolve, reject) => {
      ajax(requestOptions).then((response) => {
        const { jwt } = response;
