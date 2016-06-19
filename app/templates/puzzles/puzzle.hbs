@@ -1,35 +1,52 @@
 <div class="container">
     <strong style="position:absolute; right:50px;">Clicks: {{count}}</strong>
     <strong style="position:absolute; top:80px; right:50px;">Clicks to beat: {{model.best_path.length}}</strong>
-  <h2>Starting Word: {{model.start_word}}</h2>
-  {{#each entries as |entry|}}
-    {{entry.color}}
 
-    {{!-- {{#if green}}
-      green
-    {{else if yellow}}
-      yellow
-    {{else if red}}
-      red
-    {{/if}} --}}
+    <div class="col-md-12">
+      <h2>Starting Word: {{model.start_word}}</h2>
+    </div>
 
-    <p>
-      {{entry.word}}
-    </p>
+    <div style="position:relative; right:-20px;"> <!-- begin wrapper -->
 
-    <p>
-      {{#each entry.definition as |word|}}
-        <strong {{action "getEntry" word}}>{{word}}</strong>
+      {{#each entries as |entry|}}
+
+        <div class="col-md-12" style="right:15.5px; padding-top:5px;">
+          {{#if entry.green}}
+          <svg height="13" width="13" style="padding-right:1.5em;">
+            <circle cx="6.75" cy="6.75" r="5" stroke="black" stroke-width="2" fill="green" />
+          </svg><strong>{{entry.word}}</strong>
+          {{else if entry.yellow}}
+          <svg height="13" width="13" style="padding-right:1.5em;">
+            <circle cx="6.75" cy="6.75" r="5" stroke="black" stroke-width="2" fill="yellow" />
+          </svg><strong>{{entry.word}}</strong>
+          {{else if entry.red}}
+          <svg height="13" width="13" style="padding-right:1.5em;">
+            <circle cx="6.75" cy="6.75" r="5" stroke="black" stroke-width="2" fill="red" />
+          </svg><strong>{{entry.word}}</strong>
+          {{/if}}
+        </div>
+
+        <p>
+          <div class="col-md-7" style="position:relative; left:5px; float:left; padding-bottom:5px;">
+            <strong>Definition: </strong>
+            {{#each entry.definition as |word|}}
+              <span {{action "getEntry" word}}>{{word}}</span>
+            {{/each}}
+          </div>
+        </p>
+
       {{/each}}
-    </p>
-  {{/each}}
 
-  {{#ember-wormhole to="winning"}}
-    {{winner-modal isVisible=showMyModal count=count goHome="goHome"}}
-  {{/ember-wormhole}}
+    </div> <!-- end wrapper -->
 
-  <h2>Ending Word: {{model.end_word}}</h2>
-  <p>{{model.difficulty}}</p>
+    {{#ember-wormhole to="winning"}}
+      {{winner-modal isVisible=showMyModal count=count goHome="goHome"}}
+    {{/ember-wormhole}}
+
+    <div class="col-md-12">
+      <h2>Ending Word: {{model.end_word}}</h2>
+      <p>{{model.difficulty}}</p>
+    </div>
 
   {{#if userGiveUp}}
     {{#each model.best_path as |word|}}
@@ -37,7 +54,7 @@
     {{/each}}
   {{/if}}
 
-  <button type="button" name="button" class="btn btn-primary" {{action "setEntry" model}}>Start</button>
+  <button type="button" name="button" class="btn btn-primary col-md-1" {{action "setEntry" model}}>Start</button>
 
 </div>
 {{outlet}}

@@ -3,9 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   entries: [],
   colors: [],
-  green: false,
-  yellow: false,
-  red: false,
   path: [],
   count: 0,
   showMyModal: false,
@@ -35,24 +32,15 @@ export default Ember.Controller.extend({
               if (self.count != self.colors.length) {
                 if (puzzleWord == self.entries[self.entries.length-1].get('word')) {
                   colors.pushObject("green")
-                  self.entries[self.entries.length-1].set('color', 'green')
-                  // self.set('green', true)
-                  // self.set('yellow', false)
-                  // self.set('red', false)
+                  self.entries[self.entries.length-1].set('green', true)
                 }
                 else if (puzzleWord == defWord) {
                   colors.pushObject("yellow")
-                  self.entries[self.entries.length-1].set('color', 'yellow')
-                  // self.set('green', false)
-                  // self.set('yellow', true)
-                  // self.set('red', false)
+                  self.entries[self.entries.length-1].set('yellow', true)
                 }
                 else if (defLength == counter && puzzleWord == self.path[self.path.length-1]) {
                   colors.pushObject("red")
-                  self.entries[self.entries.length-1].set('color', 'red')
-                  // self.set('green', false)
-                  // self.set('yellow', false)
-                  // self.set('red', true)
+                  self.entries[self.entries.length-1].set('red', true)
                 }
             }
           })
@@ -71,7 +59,7 @@ export default Ember.Controller.extend({
         colors.pushObject("green")
 
         entries.pushObject(entry)
-        entries[this.entries.length-1].set('color', 'green')
+        entries[this.entries.length-1].set('green', true)
 
         puzzle.get('best_path').forEach(function(puzzleWord){
 
