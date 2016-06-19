@@ -3,6 +3,16 @@
     <strong style="position:absolute; top:80px; right:50px;">Clicks to beat: {{model.best_path.length}}</strong>
   <h2>Starting Word: {{model.start_word}}</h2>
   {{#each entries as |entry|}}
+    {{entry.color}}
+
+    {{!-- {{#if green}}
+      green
+    {{else if yellow}}
+      yellow
+    {{else if red}}
+      red
+    {{/if}} --}}
+
     <p>
       {{entry.word}}
     </p>
@@ -27,7 +37,7 @@
     {{/each}}
   {{/if}}
 
-  <button type="button" name="button" class="btn btn-primary" {{action "getEntry" model.start_word}}>Start</button>
+  <button type="button" name="button" class="btn btn-primary" {{action "setEntry" model}}>Start</button>
 
 </div>
 {{outlet}}
