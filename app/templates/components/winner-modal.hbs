@@ -1,3 +1,6 @@
 {{#bootstrap-modal isVisible=isVisible title="Winning"}}
-   You won! In {{count}} clicks!
+   You won in {{count}} clicks!<br>
+   {{#if bestPathBeaten}}
+   YOU BEAT THE BEST PATH!
+   {{/if}}
 {{/bootstrap-modal}}

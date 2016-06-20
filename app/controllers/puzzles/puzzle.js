@@ -9,8 +9,13 @@ export default Ember.Controller.extend({
   actions: {
     getEntry(word){
       if (word === this.get('model').get('end_word')){
+        if (this.get('entries').length < this.get('model').get('best_path').length){
+          this.send('updateBestPath')
+        }
+        else {
         this.incrementProperty('count')
         this.toggleProperty('showMyModal')
+        }
       }
       else {
       let path = this.get('path')
@@ -29,7 +34,7 @@ export default Ember.Controller.extend({
           var counter = 0
             definition.forEach(function(defWord){
               counter ++
-              if (self.count != self.colors.length) {
+              if (self.count + 1 != self.colors.length) {
                 if (puzzleWord == self.entries[self.entries.length-1].get('word')) {
                   colors.pushObject("green")
                   self.entries[self.entries.length-1].set('green', true)
@@ -51,7 +56,6 @@ export default Ember.Controller.extend({
       let path = this.get('path')
       let colors = this.get('colors')
       this.store.queryRecord('entry', {filter: {word: puzzle.get('start_word')}}).then((entry) => {
-        this.incrementProperty('count')
         let entries = this.get('entries')
         var definition = entry.get('definition')
         entry.set('definition', definition.split(" "))
@@ -70,6 +74,20 @@ export default Ember.Controller.extend({
     },
     goHome(){
       this.transitionToRoute('puzzles')
+    },
+    updateBestPath(){
+      let bestPath = []
+      let entries = this.get('entries')
+      entries.forEach(function(entry){
+        bestPath.push(entry.get('word'))
+      })
+      bestPath.push(this.get('model').get('end_word'))
+      this.get('model').set('best_path', bestPath)
+      this.get('model').save().then((puzzle)=>{
+        this.incrementProperty('count')
+        this.toggleProperty('bestPathBeaten')
+        this.toggleProperty('showMyModal')
+      })
     }
   }
 });
