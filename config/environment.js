@@ -46,7 +46,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.host = 'HEROKUGOESHERE'
+    ENV.host = 'https://dictionary-racer-api.herokuapp.com'
   }
 
   return ENV;
