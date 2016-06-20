@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
   actions: {
     getEntry(word){
       if (word === this.get('model').get('end_word')){
+        if (this.get('entries').length < this.get('model').get('best_path').length){
+          this.send('updateBestPath')
+        }
         this.incrementProperty('count')
         this.toggleProperty('showMyModal')
       }
@@ -21,6 +24,17 @@ export default Ember.Controller.extend({
     },
     goHome(){
       this.transitionToRoute('puzzles')
+    },
+    updateBestPath(){
+      let bestPath = []
+      let entries = this.get('entries')
+      entries.forEach(function(entry){
+        bestPath.push(entry.get('word'))
+      })
+      this.get('model').set('best_path', bestPath)
+      this.get('model').save().then(()=>{
+        debugger
+      })
     }
   }
 });
