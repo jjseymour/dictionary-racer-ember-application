@@ -2,7 +2,7 @@
 <div class="container">
   {{#each model as |puzzle|}}
     {{#link-to 'puzzles.puzzle' puzzle.id}}
-      {{puzzle.start_word}}
+      {{puzzle.start_word}} - {{puzzle.end_word}}<br>
     {{/link-to}}
   {{/each}}
 </div>
