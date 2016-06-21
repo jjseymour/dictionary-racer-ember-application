@@ -1,6 +1,6 @@
 <div class="container">
     <strong style="position:absolute; right:50px;">Clicks: {{count}}</strong>
-    <strong style="position:absolute; top:80px; right:50px;">Clicks to beat: {{model.best_path.length}}</strong>
+    <strong style="position:absolute; top:170px; right:50px;">Clicks to beat: {{model.best_path.length}}</strong>
 
     <div class="col-md-12">
       <h2>Starting Word: {{model.start_word}}</h2>
@@ -27,7 +27,7 @@
         </div>
 
         <p>
-          <div class="col-md-7" style="position:relative; left:5px; float:left; padding-bottom:5px;">
+          <div class="col-md-6" style="position:relative; left:5px; float:left; padding-bottom:5px;">
             <strong>Definition: </strong>
             {{#each entry.definition as |word|}}
               <span {{action "getEntry" word}}>{{word}}</span>
@@ -45,7 +45,6 @@
 
     <div class="col-md-12">
       <h2>Ending Word: {{model.end_word}}</h2>
-      <p>{{model.difficulty}}</p>
     </div>
 
   {{#if userGiveUp}}

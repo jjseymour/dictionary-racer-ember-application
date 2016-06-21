@@ -8,5 +8,8 @@ export default Model.extend({
   difficulty: attr(),
   best_path: attr(),
   users: hasMany('user', {async: true}),
-  entries: hasMany('entry', {async: true})
+  entries: hasMany('entry', {async: true}),
+  isEasy: Ember.computed.equal('difficulty', 'easy'),
+  isMedium: Ember.computed.equal('difficulty', 'medium'),
+  isHard: Ember.computed.equal('difficulty', 'hard')
 });
