@@ -8,10 +8,10 @@
       <ul class="nav navbar-nav">
         <li class="active" id="puzzles">{{link-to 'Solve' 'puzzles'}}</li>
         <li class="active" id="entries">{{link-to 'Create' 'puzzles.new'}}</li>
-        <li class="active" id="users">{{link-to 'Users' 'users'}}</li>
+        <li class="active" id="users" {{action 'randomPuzzle'}}><a href="#">Random</a></li>
         {{#if session.isAuthenticated}}
-          <li class="active" style="postition:absolute; right:-165%;" id="userEmail"><a href="#">Hi, {{sessionAccount.account.email}}</a></li>
-          <li class="active" style="postition:absolute; right:-165%;" id="logOut"><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
+          {{!-- <li class="active" style="postition:absolute; right:-165%;" id="userEmail"><a href="#">Hi, {{sessionAccount.account.email}}</a></li> --}}
+          <li class="active" style="postition:absolute; right:-230%;" id="logOut"><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
         {{else}}
           <li class="active" style="postition:absolute; right:-165%;" id="logIn">{{#link-to 'login'}}Log In{{/link-to}}</li>
           <li class="active" style="postition:absolute; right:-165%;" id="SignUp">{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
