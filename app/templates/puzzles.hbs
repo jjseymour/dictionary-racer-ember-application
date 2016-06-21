@@ -1,9 +1,13 @@
 <h1>Puzzles</h1>
 <div class="container">
   {{#each model as |puzzle|}}
+    <span {{action 'clearPuzzle' puzzle}}>
     {{#link-to 'puzzles.puzzle' puzzle.id}}
+      {{#if puzzle.start_word}}
       {{puzzle.start_word}} - {{puzzle.end_word}}<br>
+      {{/if}}
     {{/link-to}}
+    </span>
   {{/each}}
 </div>
 {{outlet}}
