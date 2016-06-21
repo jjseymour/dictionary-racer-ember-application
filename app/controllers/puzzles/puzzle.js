@@ -64,9 +64,10 @@ export default Ember.Controller.extend({
 
         entries.pushObject(entry)
         entries[this.entries.length-1].set('green', true)
-
+        if (puzzle.get('best_path').length === 0){
+          path.pushObject(puzzle.get('end_word'))
+        }
         puzzle.get('best_path').forEach(function(puzzleWord){
-
           path.pushObject(puzzleWord)
 
         })

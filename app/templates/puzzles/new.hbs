@@ -1,7 +1,8 @@
+<h3> Create a Puzzle! </h3>
 <form class='form-horizontal'>
   <label for='start=word'>First Word:</label>
-  {{input value=model.start_word id='start_word'}}
+  {{input value=model.start_word id='start_word'}}<br>
   <label for='end_word'>Last Word:</label>
-  {{input value=model.end_word id='end_word'}}
+  {{input value=model.end_word id='end_word'}}<br>
   <button {{action 'save' model}} id='submit' class='btn btn-primary'>Let's Get Puzzlin'!</button>
 </form>

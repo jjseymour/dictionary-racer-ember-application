@@ -6,8 +6,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-        <li class="active" id="puzzles">{{link-to 'Puzzles' 'puzzles'}}</li>
-        <li class="active" id="entries">{{link-to 'Entries' 'entries'}}</li>
+        <li class="active" id="puzzles">{{link-to 'Solve' 'puzzles'}}</li>
+        <li class="active" id="entries">{{link-to 'Create' 'puzzles.new'}}</li>
         <li class="active" id="users">{{link-to 'Users' 'users'}}</li>
         {{#if session.isAuthenticated}}
           <li class="active" style="postition:absolute; right:-165%;" id="userEmail"><a href="#">Hi, {{sessionAccount.account.email}}</a></li>
