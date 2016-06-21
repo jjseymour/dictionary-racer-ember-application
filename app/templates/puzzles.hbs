@@ -4,9 +4,13 @@
     <span {{action 'clearPuzzle' puzzle}}>
     {{#link-to 'puzzles.puzzle' puzzle.id}}
       {{#if puzzle.start_word}}
-      {{puzzle.start_word}} - {{puzzle.end_word}}<br>
+      {{puzzle.start_word}} - {{puzzle.end_word}} 
       {{/if}}
     {{/link-to}}
+    {{#if puzzle.isEasy}}<em style='color:green;font-size:x-small'>({{puzzle.difficulty}})</em>
+    {{else if puzzle.isMedium}}<em style='color:orange;font-size:x-small'>({{puzzle.difficulty}})</em>
+    {{else if puzzle.isHard}}<em style='color:red;font-size:x-small'>({{puzzle.difficulty}})</em>{{/if}}
+    <br>
     </span>
   {{/each}}
 </div>
