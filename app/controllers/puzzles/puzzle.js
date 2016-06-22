@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
   actions: {
     getEntry(word){
       if (word === this.get('model').get('end_word')){
+        debugger
         if (this.get('entries').length < this.get('model').get('best_path').length){
           this.send('updateBestPath')
         }
